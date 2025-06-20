@@ -1,21 +1,22 @@
 
 
-function StatsDisplay({stats}) {
 
-  console.log(stats.wordcount);
+
+  function StatsDisplay({ stats, showReadingTime }) {
     return (
       <div>
         <div>
-          <div>Characters Count {stats.characterCount}</div>
+          <h1>Characters Count {stats.characterCount}</h1>
         </div>
         <div>
-          <div>Word Count: {stats.wordCount}</div>
+          <h2>Word Count: {stats.wordCount}</h2>
         </div>
-        <div>
-          <div>Reading Time 0:00</div>
-        </div>
+        {showReadingTime && (
+          <div>
+            <h3>Reading Time 0:00</h3>
+          </div>
+        )}
       </div>
     );
   }
-  
   export default StatsDisplay;

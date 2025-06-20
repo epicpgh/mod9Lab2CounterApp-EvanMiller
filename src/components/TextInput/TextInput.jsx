@@ -6,30 +6,31 @@
 
 import { useState } from "react";
 
-function TextInput({ onTextChange, placeholder }) {
+function TextInput({ onTextChange, placeholder = "" }) {
     const [inputValue, setInputValue] = useState("");
 
-    const handleChange = (e) => {
-                console.log(e.target.value);
+    const handleTextChange = (e) => {
+        const newValue = e.target.value;
+        setInputValue(newValue);
      
-            onTextChange(e.target.value);
-        }
-    };
+            onTextChange(newValue);
+        };
+    
 
     return (
         <>
             <label htmlFor="text-input">Type Something...</label>
-            <textarea on change = {handleChange}style = {{width: 100% }}
+            <textarea 
                 id="text-input"
                 type="text"
                 value={inputValue}
-                onChange={handleInputChange}
+                onChange={handleTextChange}
                 placeholder={placeholder}
                 className="text-input"
             />
         </>
-    );
-}
+    );}
+
 
 
     
